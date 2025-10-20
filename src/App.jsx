@@ -18,7 +18,7 @@ export default function App() {
   const [phase, setPhase] = useState('PlayerInput');
   const [playerIndex, setPlayerIndex] = useState(0);
   const [dealerIndex, setDealerIndex] = useState(0);
-  const [maxPhase, setMaxPhase] = useState(2);
+  const [maxPhase, setMaxPhase] = useState(3);
   const [winner, setWinner] = useState('');
 
   const inputRef = useRef(null);
@@ -184,11 +184,13 @@ export default function App() {
   if (phase === 'Round') {
     const currentDealer = playerList[dealerIndex].name;
     return (
-      <div>
-        <Round dealer={currentDealer} playerList={playerList} />
+      <div className="boundary">
+        <div className="playerlist">
+          <Round dealer={currentDealer} playerList={playerList} />
+        </div>
 
         <button
-          className="endRound"
+          className="playerAdvance"
           onClick={handleEndRound}>
             End Round
         </button>
@@ -202,30 +204,32 @@ export default function App() {
     let currentPlayer = playerList[playerIndex].name;
     return (
       <>
-      <div>
-        <div>
-        <PlayerList playerList={playerList} allFields={true}/>
+        <div className="boundary">
+          <div className="wrapper">
+            <div className="playerlist">
+              <PlayerList playerList={playerList} allFields={true}/>
+            </div>
+            <div>
+              <button
+                  className="playerAdvance"
+                  disabled>
+                  Did {currentPlayer} Phase?
+              </button>
+              <div>
+                <button
+                  className="yes-button"
+                  onClick={() => handleYesNo('Yes')}>
+                    Yes
+                </button>
+                <button
+                  className="no-button"
+                  onClick={() => handleYesNo('No')}>
+                    No
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <button
-              className="playerAdvance"
-              disabled>
-              Did {currentPlayer} Phase?
-          </button>
-        </div>
-        <div>
-          <button
-            className="yesNo"
-            onClick={() => handleYesNo('Yes')}>
-              Yes
-          </button>
-          <button
-            className="yesNo"
-            onClick={() => handleYesNo('No')}>
-              No
-          </button>
-        </div>
-      </div>
       </>
     )
   }
@@ -234,38 +238,47 @@ export default function App() {
     let currentPlayer = playerList[playerIndex].name;
     return (
       <>
-        <PlayerList playerList={playerList} allFields={true}/>
+        <div className="boundary">
+          <div className="wrapper">
+            <div className="playerlist">
+              <PlayerList playerList={playerList} allFields={true}/>
+            </div>
 
-        <button
-            className="playerPoints"
-            readOnly
-            disabled>
-            {currentPlayer}'s Points
-        </button>
+            <div>
+              <button
+                  className="playerAdvance"
+                  readOnly
+                  disabled>
+                  {currentPlayer}'s Points
+              </button>
+            </div>
 
-        <input 
-          value = {playerScore}
-        />
+            <div className="score-input-container">
 
-        <div className="NumKey-row">
-          <NumKey value={1} onNumKeyClick={() => handleNumKeyClick(1)} />
-          <NumKey value={2} onNumKeyClick={() => handleNumKeyClick(2)} />
-          <NumKey value={3} onNumKeyClick={() => handleNumKeyClick(3)} />
-        </div>
-        <div className="NumKey-row">
-          <NumKey value={4} onNumKeyClick={() => handleNumKeyClick(4)} />
-          <NumKey value={5} onNumKeyClick={() => handleNumKeyClick(5)} />
-          <NumKey value={6} onNumKeyClick={() => handleNumKeyClick(6)} />
-        </div>
-        <div className="NumKey-row">
-          <NumKey value={7} onNumKeyClick={() => handleNumKeyClick(7)} />
-          <NumKey value={8} onNumKeyClick={() => handleNumKeyClick(8)} />
-          <NumKey value={9} onNumKeyClick={() => handleNumKeyClick(9)} />
-        </div>
-        <div className="NumKey-row">
-          <NumKey value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
-          <NumKey value={0} onNumKeyClick={() => handleNumKeyClick(0)} />
-          <NumKey value={'<-'} onNumKeyClick={() => handleNumKeyClick('<-')} />
+              <input className="input-field" value = {playerScore}/>
+
+              <div className="NumKey-row">
+                <NumKey value={1} onNumKeyClick={() => handleNumKeyClick(1)} />
+                <NumKey value={2} onNumKeyClick={() => handleNumKeyClick(2)} />
+                <NumKey value={3} onNumKeyClick={() => handleNumKeyClick(3)} />
+              </div>
+              <div className="NumKey-row">
+                <NumKey value={4} onNumKeyClick={() => handleNumKeyClick(4)} />
+                <NumKey value={5} onNumKeyClick={() => handleNumKeyClick(5)} />
+                <NumKey value={6} onNumKeyClick={() => handleNumKeyClick(6)} />
+              </div>
+              <div className="NumKey-row">
+                <NumKey value={7} onNumKeyClick={() => handleNumKeyClick(7)} />
+                <NumKey value={8} onNumKeyClick={() => handleNumKeyClick(8)} />
+                <NumKey value={9} onNumKeyClick={() => handleNumKeyClick(9)} />
+              </div>
+              <div className="NumKey-row">
+                <NumKey value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
+                <NumKey value={0} onNumKeyClick={() => handleNumKeyClick(0)} />
+                <NumKey value={'<-'} onNumKeyClick={() => handleNumKeyClick('<-')} />
+              </div>
+            </div>
+          </div>
         </div>
       </>
     )
@@ -274,8 +287,14 @@ export default function App() {
   if (phase === 'Final Score') {
     return (
       <>
-        Winner: {winner}
-        <PlayerList playerList={playerList} allFields={true}/>
+      <div className="boundary">
+          <div className="wrapper">
+            <div className="playerlist">
+              Winner: {winner}
+              <PlayerList playerList={playerList} allFields={true}/>
+            </div>
+          </div>
+        </div>
       </>
     )
   }

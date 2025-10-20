@@ -24,7 +24,7 @@ function PlayerList({playerList, allFields}) {
 
 function Player({playerRow, allFields}) {
     return (
-        <tr>
+        <tr className="tableHeader">
             <td>{playerRow.name}</td>
             <td>{playerRow.phase}</td>
             {allFields && <td>{playerRow.points}</td>}
