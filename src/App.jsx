@@ -18,7 +18,7 @@ export default function App() {
   const [phase, setPhase] = useState('PlayerInput');
   const [playerIndex, setPlayerIndex] = useState(0);
   const [dealerIndex, setDealerIndex] = useState(0);
-  const [maxPhase, setMaxPhase] = useState(3);
+  const [maxPhase, setMaxPhase] = useState(11);
   const [winner, setWinner] = useState('');
 
   const inputRef = useRef(null);
@@ -61,6 +61,9 @@ export default function App() {
     );
   }
 
+  /**
+   * Need to handle ties
+   */
   function findWinner() {
     let lowScore = 9999;
     let winnerName;
@@ -143,41 +146,45 @@ export default function App() {
   if (phase === 'PlayerInput') {
     return (
       <>
-      <div className="firstscreen">
-        <div className="wrapper">
+      <div className="boundary">
           <div className="playerlist">
             <PlayerList playerList={playerList} allFields={true}/>
           </div>
-          <div>
-            <label>
-              Player Name 
-                          </label>
+          <div className="input">
 
-              <input 
-                value = {playerName}
-                onLoad={setFocus}
-                ref={inputRef}
-                onChange={e => {
-                  setPlayerName(e.target.value);
-                }}
-              />
+            <div>
+              <label>
+                Player Name 
+              </label>
+            </div>
+            <div>
+                <input 
+                  value = {playerName}
+                  onLoad={setFocus}
+                  ref={inputRef}
+                  onChange={e => {
+                    setPlayerName(e.target.value);
+                  }}
+                />
+            </div>
           </div>
-          <div>
-            <button
-              className="add-player"
-              onClick={handleAddPlayer}>
-                Add Player
-            </button>
-          </div>
-          <div>
-            <button
-              className="start-game"
-              onClick={handleStartGame}>
-                Start Game
-            </button>
-          </div>
+
+            <div>
+              <button
+                className="add-player"
+                onClick={handleAddPlayer}>
+                  Add Player
+              </button>
+            </div>
+            <div>
+              <button
+                className="start-game"
+                onClick={handleStartGame}>
+                  Start Game
+              </button>
+            </div>
+
         </div>
-      </div>
       </>
     );
   }
