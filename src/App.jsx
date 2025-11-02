@@ -1,7 +1,6 @@
 import PlayerList from './components/PlayerList';
 import Round from './components/Round';
 import NumKey from  './components/NumKey';
-import TextToSvgComponent from './TextToSvgComponent';
 import {useState} from 'react';
 import {useRef} from 'react';
 import './App.css';
