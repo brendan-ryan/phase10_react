@@ -1,6 +1,7 @@
 import PlayerList from './components/PlayerList';
 import Round from './components/Round';
 import NumKey from  './components/NumKey';
+import TextToSvgComponent from './TextToSvgComponent';
 import {useState} from 'react';
 import {useRef} from 'react';
 import './App.css';
@@ -15,7 +16,7 @@ export default function App() {
   const [playerName, setPlayerName] = useState('');
   const [playerScore, setPlayerScore] = useState(0);
   const [playerList, setPlayerList] = useState([]);
-  const [phase, setPhase] = useState('PlayerInput');
+  const [phase, setPhase] = useState('Loading');
   const [playerIndex, setPlayerIndex] = useState(0);
   const [dealerIndex, setDealerIndex] = useState(0);
   const [maxPhase, setMaxPhase] = useState(11);
@@ -143,6 +144,24 @@ export default function App() {
   }
 
   // Game Boards
+  if (phase === 'Loading') {
+    setTimeout(() => { 
+      setPhase('PlayerInput'); 
+    }, 3000);
+
+    return (
+      <>
+        <div className="boundary">
+          
+          
+          <div className="centered-component">
+            <p className="splashText">Phase 10</p>
+          </div>
+        </div>
+      </>
+        
+    );
+  }
   if (phase === 'PlayerInput') {
     return (
       <>
@@ -218,7 +237,7 @@ export default function App() {
             </div>
             <div>
               <button
-                  className="playerAdvance"
+                  className="player-phase"
                   disabled>
                   Did {currentPlayer} Phase?
               </button>

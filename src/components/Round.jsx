@@ -3,7 +3,7 @@ import PlayerList from "./PlayerList";
 function Round({dealer, playerList}) {
     return (
         <>
-            <div>Dealer: {dealer}</div>
+            <div className="current-dealer">Dealer: {dealer}</div>
             <PlayerList playerList={playerList} allFields={false}/>
         </>
     )
