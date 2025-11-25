@@ -1,3 +1,5 @@
+import './PlayerList.css';
+
 function PlayerList({playerList, allFields}) {    
     const playerRows = [];
 
