@@ -1,7 +1,7 @@
 import PlayerList from './components/PlayerList';
 import Round from './components/Round';
 import NumKey from  './components/NumKey';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useRef} from 'react';
 import './App.css';
 
@@ -20,6 +20,43 @@ export default function App() {
   const [dealerIndex, setDealerIndex] = useState(0);
   const [maxPhase, setMaxPhase] = useState(11);
   const [winner, setWinner] = useState('');
+
+  // localStorage.clear();
+
+  // useEffect(() => {
+  //   console.log('useEffect - assigning state variables from localStorage');
+
+  //   const playerList = localStorage.getItem('playerList');
+  //   playerList && setPlayerList(JSON.stringify(playerList));
+
+  //   const phase = localStorage.getItem('phase');
+  //   phase && setPhase(phase);
+
+  //   const playerIndex = localStorage.getItem('playerIndex');
+  //   playerIndex && setPlayerIndex(playerIndex);
+
+  //   const dealerIndex = localStorage.getItem('dealerIndex');
+  //   dealerIndex && setDealerIndex(dealerIndex);
+  // }, [1]);
+
+  // useEffect(() => {
+  //   console.log('Setting playerList');
+  //   localStorage.setItem('playerList', JSON.stringify(playerList));
+  //   console.log('localStorage.playerList: ' + localStorage.getItem('playerList'));
+  // }, [playerList]);
+  // useEffect(() => {
+  //   console.log('Setting phase');
+  //   localStorage.setItem('phase', phase);
+  //   console.log('localStorage.phase: ' + localStorage.getItem('phase'));
+  // }, [phase]);
+  // useEffect(() => {
+  //   console.log('Setting playerIndex');
+  //   localStorage.setItem('playerIndex', playerIndex);
+  // }, [playerIndex]);
+  // useEffect(() => {
+  //   console.log('Setting dealerList');
+  //   localStorage.setItem('dealerIndex', dealerIndex);
+  // }, [dealerIndex]);
 
   const inputRef = useRef(null);
 
@@ -97,7 +134,6 @@ export default function App() {
     ]);
     inputRef.current.focus(); // Set's focus to the input field after each click
     setPlayerName(""); // Because the state variable is bound to the input field, I can just clear this value
-
     }
   }
 
@@ -151,7 +187,6 @@ export default function App() {
     return (
       <>
         <div className="boundary">
-          
           
           <div className="centered-component">
             <p className="splashText">Phase 10</p>
@@ -280,7 +315,7 @@ export default function App() {
 
             <div className="score-input-container">
 
-              <input className="input-field" value = {playerScore}/>
+              <input className="input-field" value = {playerScore} readOnly/>
 
               <div className="NumKey-row">
                 <NumKey value={1} onNumKeyClick={() => handleNumKeyClick(1)} />

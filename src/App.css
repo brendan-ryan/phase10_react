@@ -23,9 +23,9 @@
 .boundary {
     width: 375px;
     height: 667px;
-    border: solid;
+    /* border: solid;
     border-color: red;
-    border-width: 1px;
+    border-width: 1px; */
     text-align: center;
 }
 

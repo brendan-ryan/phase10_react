@@ -4,7 +4,7 @@ function Round({dealer, playerList}) {
     return (
         <>
             <div className="current-dealer">Dealer: {dealer}</div>
-            <PlayerList playerList={playerList} allFields={false}/>
+            <PlayerList playerList={playerList} allFields={true}/>
         </>
     )
 }
