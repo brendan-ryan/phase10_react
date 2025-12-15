@@ -3,7 +3,10 @@ import './PlayerList.css';
 function PlayerList({playerList, allFields}) {    
     const playerRows = [];
 
-    return (
+    if (!playerList || playerList.length === 0) {
+        return null;
+    } else {
+        return (
         <>
             <table className="tableHeader">
                 <thead>
@@ -20,8 +23,9 @@ function PlayerList({playerList, allFields}) {
                 </tbody>
             </table>
         </>
+        );
 
-    );
+    }
 }
 
 function Player({playerRow, allFields}) {
@@ -33,21 +37,6 @@ function Player({playerRow, allFields}) {
         </tr>
     );
 }
-
-    // console.log('Player List Function: ' + value);
-    // players.name.map((player, index) => (
-    //     console.log('Player: ' + player)));
-    
-    // const superList = players.map((player) => {
-    //     return {name: player, phase: 1, points: 0}
-    // });
-
-    // const playerList = [
-    //         {name: 'Brendan', phase: 1, points: 0},
-    //     {name: 'Emily', phase: 1, points: 0},
-    //     {name: 'Mia', phase: 1, points: 0},
-    //     {name: 'Enzo', phase: 1, points: 0}
-    // ]
 
 
 export default PlayerList;

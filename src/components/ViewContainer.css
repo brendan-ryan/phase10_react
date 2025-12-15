@@ -1,0 +1,253 @@
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+* {
+    font-size: 16px;
+}
+
+.firstscreen {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 300px;
+    grid-gap: 10px;
+    /* border: solid;
+    border-color: red;
+    border-width: 1px; */
+    /* position: relative; */
+    /* background-color: #fff;
+    color: #444; */
+}
+
+.boundary {
+    width: 375px;
+    height: 667px;
+    /* border: solid;
+    border-color: red;
+    border-width: 1px; */
+    text-align: center;
+}
+
+.wrapper {
+    /* display: grid;
+    place-items: */
+    position: relative;
+}
+
+.score-input-container {
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.another-container {
+    display: grid;
+    width: 375px;
+    place-items: center;
+    grid-template-columns: 100%;
+    /* border: solid;
+    border-color: red;
+    border-width: 1px; */
+}
+
+.playerlist {
+    height: 10rem;
+    margin-bottom: 50px;
+    /* border: solid;
+    border-color: blue;
+    border-width: 1px; */
+    /* text-align: center; */
+
+    /* display: inline-block; */
+    /* transform: translateY(50%); */
+}
+
+.input {
+    display: grid;
+    place-items: center;
+}
+
+.number {
+    width: 60px;
+    height: 60px;
+    font-size: 1em;
+}
+
+/* .NumKey-row {
+    width: 100%;
+} */
+
+/* Buttons */
+.yes-button {
+    width: 45%;
+    position: absolute;
+    left: 0;
+    margin-left: 1em;
+    /* margin-left: 1em;  */
+}
+
+.no-button {
+    width: 45%;
+    position: absolute;
+    right: 0;
+    margin-right: 1em;
+    /* margin-right: 1em; */
+}
+
+/**
+  Add Player
+  End Round
+  Did __ phase
+**/
+.playerAdvance {
+    width: 90%;
+    height: 5rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    /* pointer-events: none; */
+}
+
+.player-phase {
+    width: 90%;
+    height: 5rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    pointer-events: none;
+}
+
+.add-player {
+    width: 90%;
+    /* margin-left: 1em; */
+    margin-top: 1em;
+    margin-bottom: 5em;
+    /* bottom: 50%; */
+}
+
+.start-game {
+    width: 90%;
+    height: 5rem;
+    margin-left: 1em;
+    margin-right: 1em;
+    bottom: 0;
+}
+
+.input-field {
+    width: 20%;
+    height: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/*
+ * Round
+ */
+ .current-dealer {
+    margin-bottom: 1em;
+    font-style: italic;
+ }
+
+/* Table Layout */
+table {
+    table-layout: fixed;
+    width: 90%;
+
+}
+
+th {
+    text-align: left;
+}
+
+/*
+ * Splash Screen 
+ */
+
+.splashText {
+    display: inline-block;
+    font-size: 3rem;
+
+    background: linear-gradient(0.25turn, #2596be, #f6190f, #ebd620, #137619);
+    background-size: 50% 50%;
+
+    -webkit-background-clip: text;
+    /* 
+        Because 'background' is shorthand, it applies several properties, 
+        which will overwrite anything specified before it.
+        Originally, I was setting the clip (background-clip: text;), then
+        overwriting it by setting (background: linear-gradient();).
+
+        Order matters, especially when using shorthand.
+
+        Think: shorthands are "complete resets"
+    */
+    background-clip: text; 
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    animation: wave 1s infinite;
+}
+
+.centered-component {
+    width: 375px;
+    height: 667px;
+
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+
+    /* background-color: black; */
+}
+
+/* @keyframes wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    /* 50% {
+        background-position: 50% 50%;
+    } */
+    /* 100% {
+        background-position: 100% 50%;
+    } */
+/* } */ 
+
+@keyframes wave {
+    from {
+        background-position: -100% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+
+
+/* 
+iPhone 12
+Height: 2532
+Width: 1170
+*/
+
+
+
+    /* Lime Green */
+    /* filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%); */
+
+    /* Red */
+    /* filter: invert(24%) sepia(61%) saturate(6019%) hue-rotate(2deg) brightness(101%) contrast(107%); */
+
+    /* Darker Red */
+    /* filter: invert(9%) sepia(100%) saturate(7499%) hue-rotate(4deg) brightness(94%) contrast(93%); */
+
+    /* Blue */
+    /* filter: invert(16%) sepia(68%) saturate(4104%) hue-rotate(197deg) brightness(100%) contrast(103%); */
+
+    /* Yellow */
+    /* filter: invert(74%) sepia(60%) saturate(614%) hue-rotate(5deg) brightness(96%) contrast(95%); */
+
+    /* Green */
+    /* filter: invert(36%) sepia(19%) saturate(3972%) hue-rotate(87deg) brightness(91%) contrast(89%); */
+    /* border: solid;
+    border-color: white;
+    border-width: 1px; */
