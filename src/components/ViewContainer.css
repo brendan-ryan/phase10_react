@@ -35,10 +35,33 @@
     position: relative;
 }
 
+
+/*
+ *  Number Pad
+*/
 .score-input-container {
     display: grid;
+    gap: 10px;
     place-items: center;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.NumKey-row {
+    display: grid;
+    width: 60%;
+    gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.NumKey-row:nth-of-type(4) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.NumKey-row:nth-of-type(5) {
+    display: grid;
+    font-size: 1.2rem;
+    grid-template-columns: 1fr;
 }
 
 .another-container {

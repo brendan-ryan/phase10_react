@@ -346,9 +346,11 @@ function ViewContainer({currentState, handleState}) {
               </div>
               <div className="NumKey-row">
                 {/* handleEnterClick passes playerScore as a param */}
-                <NumKey value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
                 <NumKey value={0} onNumKeyClick={() => handleNumKeyClick(0)} />
                 <NumKey value={'<-'} onNumKeyClick={() => handleNumKeyClick('<-')} />
+              </div>
+              <div className="NumKey-row">
+                <NumKey value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
               </div>
             </div>
           </div>
