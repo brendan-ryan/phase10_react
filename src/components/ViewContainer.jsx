@@ -136,9 +136,21 @@ function ViewContainer({currentState, handleState}) {
     if (num == '<-') {
       let scoreString = currentState.playerScore.toString().slice(0, currentState.playerScore.toString().length-1);
       handleState('playerScore', Number(scoreString));
+      validateScoreEntry(Number(scoreString));
     } else {
       const newVal = currentState.playerScore.toString().concat(num);
       handleState('playerScore', Number(newVal));
+      validateScoreEntry(Number(newVal));
+    }
+  }
+
+  function validateScoreEntry(newVal) {
+    console.log('newVal: ' + newVal);
+    console.log('newVal % 5: ' + newVal % 5);
+    if (newVal % 5 !== 0) {
+        document.getElementsByClassName("enter-button")[0].disabled = true;
+    } else {
+        document.getElementsByClassName("enter-button")[0].disabled = false;
     }
   }
 
@@ -350,7 +362,7 @@ function ViewContainer({currentState, handleState}) {
                 <NumKey value={'<-'} onNumKeyClick={() => handleNumKeyClick('<-')} />
               </div>
               <div className="NumKey-row">
-                <NumKey value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
+                <NumKey className="enter-button" value={'ENTER'} onNumKeyClick={() => handleEnterClick()} />
               </div>
             </div>
           </div>
