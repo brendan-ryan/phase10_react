@@ -1,4 +1,5 @@
 import PlayerList from './PlayerList';
+import PlayerCard from './PlayerCard';
 import Round from './Round';
 import NumKey from  './NumKey';
 import {useState, useEffect} from 'react';
@@ -234,7 +235,7 @@ function ViewContainer({currentState, handleState}) {
               </label>
             </div>
             <div>
-                <input 
+                <input
                   value = {currentState.playerName}
                   onLoad={setFocus}
                   ref={inputRef}
@@ -268,8 +269,11 @@ function ViewContainer({currentState, handleState}) {
     const currentDealer = currentState.playerList[currentState.dealerIndex].name;
     return (
       <div className="boundary">
-        <div className="playerlist">
+        {/* <div className="playerlist">
           <Round dealer={currentDealer} playerList={currentState.playerList} />
+        </div> */}
+        <div>
+          <PlayerCard playerList={currentState.playerList} />
         </div>
 
         <button

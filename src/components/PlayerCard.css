@@ -1,0 +1,13 @@
+.player-card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.player-card-text {
+    margin-left: 1rem;
+}
