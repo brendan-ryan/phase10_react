@@ -1,13 +1,34 @@
 .player-card {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    /* margin-top: 1rem;
+    margin-bottom: 1rem; */
     border: solid;
-    border-color: white;
+    border-color: #2a3142;
     border-width: 1px;
     border-radius: 20px;
     text-align: left;
+    /* Test */
+    background-color: #151b27;
+    width: 90%;
+    margin: 1rem auto 1rem auto;
+}
+
+.card-table {
+    width: 100%;
 }
 
 .player-card-text {
+    display: grid;
+    grid-template-columns: 40% 60%;
     margin-left: 1rem;
 }
+
+.card-col-1 {
+    width: 30%;
+}
+.card-col-2 {
+    width: 70%;
+}
+
+/* .card-player-name:nth-of-type(1) {
+
+} */

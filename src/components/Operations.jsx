@@ -1,3 +1,5 @@
+import './Operations.css';
+
 function Operations({currentState, handleState}) {
 
     function startNewGame() {

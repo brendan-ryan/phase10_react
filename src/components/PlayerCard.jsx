@@ -37,7 +37,7 @@ function Card({playerName, phaseNumber, points}) {
         <>
             <div className="player-card">
                 <div className="player-card-text">
-                    <div>{playerName}</div>
+                    <div className="card-player-name">{playerName}</div>
                     <div>Phase: {phaseNumber}</div>
                     <div>Points: {points}</div>
                     <div>{phaseName}</div>
