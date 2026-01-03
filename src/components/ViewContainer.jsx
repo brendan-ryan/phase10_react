@@ -54,6 +54,12 @@ function ViewContainer({currentState, handleState}) {
     inputRef.current.focus();
   }
 
+  function handleEnterKeyOnPlayerInput(event) {
+    if (event.key === 'Enter') {
+      handleAddPlayer(event);
+    }
+  }
+
   // Event Handler
   function handleStartGame() {
     // When this executes, playerList goes away in localStorage
@@ -203,7 +209,8 @@ function ViewContainer({currentState, handleState}) {
   // Game Boards
   if (currentState.phase === 'Loading') {
     setTimeout(() => { 
-      handleState('phase', 'PlayerInput'); 
+      handleState('phase', 'PlayerInput');
+      playerInputField = document.getElementById('')
     }, 3000);
 
     return (
@@ -239,6 +246,7 @@ function ViewContainer({currentState, handleState}) {
                   value = {currentState.playerName}
                   onLoad={setFocus}
                   ref={inputRef}
+                  onKeyDown={handleEnterKeyOnPlayerInput}
                   onChange={e => {
                     handleState('playerName', e.target.value);
                   }}
